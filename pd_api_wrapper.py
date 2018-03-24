@@ -80,7 +80,9 @@ class Organization(Pipedrive):
 
 
     def get_org(self, org_id):
-
+        '''
+        Returns the details of a single Organization as a dictionary
+        '''
         options = 'organizations/' + str(org_id)
         url = self.get_url(options)
         #print(url)
@@ -132,7 +134,9 @@ class Person(Pipedrive):
 
         field = "{}".format(field.replace("'", "").strip())
 
-        # if None, return 0 else return value
+        if resp.status_code != 200:
+            raise APIError(resp.status_code, 'get_person_field')
+
         return str(details[field])
 
 
@@ -176,6 +180,7 @@ class Deal(Pipedrive):
     '''
     def __init__(self):
         super().__init__()
+
 
     def get_deal(self, deal_id):
         '''
