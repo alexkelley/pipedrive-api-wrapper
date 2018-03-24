@@ -21,12 +21,8 @@ class Pipedrive():
     '''
     Pipedrive API wrapper in Python3
     '''
-
-    with open('pd_api_key.txt', 'r') as f:
-        API_KEY = f.read().strip()
-
-    def __init__(self):
-        pass
+    def __init__(self, API_KEY):
+        self.API_KEY = API_KEY
 
 
     def get_url(self, options):
@@ -74,9 +70,11 @@ class Pipedrive():
 class Organization(Pipedrive):
     '''
     Actions on Organization objects
+
+    Initialize object with API_KEY as lone parameter
     '''
-    def __init__(self):
-        super().__init__()
+    def __init__(self, API_KEY):
+        super().__init__(API_KEY)
 
 
     def get_org(self, org_id):
@@ -102,9 +100,11 @@ class Organization(Pipedrive):
 class Person(Pipedrive):
     '''
     Actions on Person objects
+
+    Initialize object with API_KEY as lone parameter
     '''
-    def __init__(self):
-        super().__init__()
+    def __init__(self, API_KEY):
+        super().__init__(API_KEY)
 
 
     def get_person(self, person_id):
@@ -147,9 +147,11 @@ class Person(Pipedrive):
 class Activity(Pipedrive):
     '''
     Actions on an Activity object
+
+    Initialize object with API_KEY as lone parameter
     '''
-    def __init__(self):
-        super().__init__()
+    def __init__(self, API_KEY):
+        super().__init__(API_KEY)
 
 
     def add_activity(self, data_dict):
@@ -177,9 +179,11 @@ class Activity(Pipedrive):
 class Deal(Pipedrive):
     '''
     Actions on an Deal object
+
+    Initialize object with API_KEY as lone parameter
     '''
-    def __init__(self):
-        super().__init__()
+    def __init__(self, API_KEY):
+        super().__init__(API_KEY)
 
 
     def get_deal(self, deal_id):
